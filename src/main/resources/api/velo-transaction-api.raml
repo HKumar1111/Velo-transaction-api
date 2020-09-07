@@ -1,0 +1,32 @@
+#%RAML 1.0
+title: Velo-transaction-api
+
+
+/transactions:
+  get:
+    displayName: get transactions
+    queryParameters:
+      AccountNumber:
+        type: string
+        required: true  
+      StartDate:
+        type: string
+        required: true
+      EndDate:
+        type: string
+        required: true
+    responses:
+      200:
+        body:
+          multipart/form-data:
+            properties:
+              file:
+                type: file
+                fileTypes: ['application/csv']
+                example: !include response/DI_Transaction_export file.csv
+
+          
+            
+
+              
+             
